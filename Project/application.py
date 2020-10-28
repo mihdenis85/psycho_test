@@ -6,6 +6,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from Project.data import db_session
 from Project.data.models import User, ProfessionsCategories
+from Project.data.models.professions import Profession
 from Project.forms.login_form import LoginForm
 from Project.forms.register_form import RegisterForm
 
@@ -15,6 +16,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=365)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+admin_index = 1
 
 
 @login_manager.user_loader
@@ -103,6 +105,23 @@ def professions_categories():
     db = db_session.create_session()
     categories = db.query(ProfessionsCategories).all()
     return render_template('professions_categories.html', title='Категории', categories=categories)
+
+
+@app.route('/professions/categories/<int:category_id>')
+def professions(category_id):
+    db = db_session.create_session()
+    professions = db.query(Profession).filter(Profession.category_id == category_id).all()
+    return render_template('professions.html', title='Профессии', professions=professions, category_id=category_id)
+
+
+@app.route('/professions/<int:profession_id>')
+def profession_description(profession_id):
+    db = db_session.create_session()
+    profession = db.query(Profession).filter(Profession.id == profession_id).first()
+    if profession:
+        return render_template('profession_description.html', profession=profession,
+                               title='Profession info')
+    return redirect('/')
 
 
 @app.errorhandler(404)

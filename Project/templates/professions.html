@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class='text-center container'>
+    <h2>Профессии</h2><br>
+    <div class="container">
+        <ul class="list-group">
+            {% for profession in professions %}
+            <li>
+                <p><a href="/professions/{{ profession.id }}">{{ profession.title }}</a></p>
+            {% endfor %}
+        </ul>
+    </div>
+    </main>
+
+{% endblock %}

@@ -6,7 +6,8 @@
         <div class="container">
             <ul class="list-group">
                 {% for category in categories %}
-                <a href="#"><l6i class="list-group-item list-group-flush list-group-color">{{ category.title }}</l6i></a>
+                <a href="/professions/categories/{{ category.id }}"><li>
+                    {{ category.title }}</li></a>
                 {% endfor %}
             </ul>
         </div>
