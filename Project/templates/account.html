@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class='container'>
+    <h1 class='acc-head-name'>{{useracc}}</h1>
+    <br>
+    <h5 class='button-note-text' style='font-size:24pt;'>Account info</h5>
+    <p class='button-note-text' style='margin-left:80px;'>E-mail: {{ user.email }}</p>
+    <p class='button-note-text' style='margin-left:80px;'>City: {{ user.city }}</p>
+    <p class='button-note-text' style='margin-left:80px;'>Country: {{ user.country }}</p>
+</main>
+
+{% endblock %}

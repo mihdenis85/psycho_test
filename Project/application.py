@@ -5,7 +5,7 @@ from flask import Flask, render_template, redirect, url_for, make_response, json
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from Project.data import db_session
-from Project.data.models import User
+from Project.data.models import User, ProfessionsCategories
 from Project.forms.login_form import LoginForm
 from Project.forms.register_form import RegisterForm
 
@@ -74,14 +74,14 @@ def login():
         db = db_session.create_session()
         user = db.query(User).filter(User.email == login_form.email.data).first()
         if not user:
-            return render_template('login.html', form=login_form, message="No such user", title='Login')
+            return render_template('login.html', form=login_form, message="Такого пользователя нет", title='Login')
         if user.check_password(login_form.password.data):
             login_user(user, remember=True)
             return redirect('/')
         else:
-            return render_template('login.html', form=login_form, message="Wrong password", title='Login')
+            return render_template('login.html', form=login_form, message="Неправильный пароль", title='Login')
     else:
-        return render_template('login.html', form=login_form, title='Login')
+        return render_template('login.html', form=login_form, title='Вход')
 
 
 @app.route('/logout')
@@ -91,26 +91,40 @@ def logout():
     return redirect(url_for('login'))
 
 
+@app.route('/account_info')
+@login_required
+def account_info():
+    return render_template('account.html', title='Мой аккаунт', user=current_user,
+                           useracc=(current_user.name + ' ' + current_user.surname))
+
+
+@app.route('/professions/categories')
+def professions_categories():
+    db = db_session.create_session()
+    categories = db.query(ProfessionsCategories).all()
+    return render_template('professions_categories.html', title='Категории', categories=categories)
+
+
 @app.errorhandler(404)
 def not_found(error):
     if current_user.is_authenticated:
         info = (current_user.name + ' ' + current_user.surname)
     else:
         info = 'Anonymous'
-    er_txt = '404 not found: Wrong request: no such web-address!'
+    er_txt = '404 not found: Такого адреса не существует'
     return render_template('error.html', title='Error',
                            text=er_txt, useracc=info)
 
 
 @app.errorhandler(401)
 def unauth(error):
-    er_txt = '401 not authorized: Please log in or register!!!'
+    er_txt = '401 not authorized: Пожалуйста, авторизуйтесь на сайте!'
     return render_template('error.html', title='Error', text=er_txt)
 
 
 @app.errorhandler(500)
 def error_serv(error):
-    er_text = 'You are trying to break down the server. Don`t do that thing!'
+    er_text = 'Кажется, на сервере возникла ошибка. Выйдите на главную страницу и попробуйте снова'
     return render_template('error.html', title='Error', text=er_text)
 
 

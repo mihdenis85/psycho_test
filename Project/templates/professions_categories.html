@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class='text-center container'>
+        <h2>Категории профессий</h2>
+        <div class="container">
+            <ul class="list-group">
+                {% for category in categories %}
+                <a href="#"><l6i class="list-group-item list-group-flush list-group-color">{{ category.title }}</l6i></a>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+
+
+{% endblock %}
