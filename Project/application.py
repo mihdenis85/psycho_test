@@ -7,6 +7,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from Project.data import db_session
 from Project.data.models import User, ProfessionsCategories
 from Project.data.models.professions import Profession
+from Project.forms import Test1Form
 from Project.forms.login_form import LoginForm
 from Project.forms.register_form import RegisterForm
 
@@ -122,6 +123,14 @@ def profession_description(profession_id):
         return render_template('profession_description.html', profession=profession,
                                title='Profession info')
     return redirect('/')
+
+
+@app.route('/psycho_test1/<int:user_id>', methods=['GET', 'POST'])
+def psycho_test1(user_id):
+    form = Test1Form()
+    for subfield in form.questions[0][0]:
+        print(subfield)
+    return render_template('test1.html', title='Тест', user_id=user_id, form=form)
 
 
 @app.errorhandler(404)

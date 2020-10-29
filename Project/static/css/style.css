@@ -9,6 +9,9 @@ a {
 	text-decoration: none;
 	color: white;
 }
+td {
+    text-color: white;
+}
 img {
 	image-rendering: -moz-crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+        <h1 class="card-header text">Психологический тест</h1>
+    <br>
+    <h4><div class="text">Добро пожаловать в наш тест по профориентации!</div></h4>
+    <h4><div class="text">Из двух предложенных профессий выберите одну, которая ближе конкретно вам</div></h4>
+    <br>
+        <form class="card-body" method="POST">
+            {% if message %}
+            <div class="text">{{ message }}</div>
+            {% endif %}
+
+            {% for question in form.questions %}
+            {% for subfield in form.question %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+
+
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+</div>
+{% endblock %}
