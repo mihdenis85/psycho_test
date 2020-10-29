@@ -18,15 +18,23 @@
 
 <body>
     <div class="header">
-
 			<ul class="log_menu" align="left">
+                {% if current_user.is_authenticated %}
+                    <a href="/account_info"><li class="menu_point"  id="menu_button_1">Личный кабинет</li></a>
+                    <a href="/professions/categories"><li class="menu_point"  id="menu_button_2">Профессии</li></a>
+                {% else %}
 				<a href="/register"><li class="menu_point"  id="menu_button_1">Зарегистрироваться</li></a>
 				<a href="/login"><li class="menu_point"  id="menu_button_2">Войти</li></a>
+                {% endif %}
 			</ul>
 
 			<ul class="menu" align="right">
 				<a href="/"><li class="menu_point"  id="menu_button_3">Главная</li></a>
+                {% if current_user.is_authenticated %}
 				<a href="/logout"><li class="menu_point" id="menu_button_4">Выйти</li></a>
+                {% else %}
+                <a href="/professions/categories"><li class="menu_point"  id="menu_button_4">Профессии</li></a>
+                {% endif %}
 			</ul>
 
     </div>

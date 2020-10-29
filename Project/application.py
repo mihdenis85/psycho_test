@@ -107,14 +107,14 @@ def professions_categories():
     return render_template('professions_categories.html', title='Категории', categories=categories)
 
 
-@app.route('/professions/categories/<int:category_id>')
+@app.route('/professions/<int:category_id>')
 def professions(category_id):
     db = db_session.create_session()
     professions = db.query(Profession).filter(Profession.category_id == category_id).all()
-    return render_template('professions.html', title='Профессии', professions=professions, category_id=category_id)
+    return render_template('professions.html', title='Профессии', professions=professions)
 
 
-@app.route('/professions/<int:profession_id>')
+@app.route('/profession_description/<int:profession_id>')
 def profession_description(profession_id):
     db = db_session.create_session()
     profession = db.query(Profession).filter(Profession.id == profession_id).first()
