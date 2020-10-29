@@ -3,10 +3,10 @@
 {% block content %}
 <div class="container">
     <div class="card">
-        <header class="card-header">Authentication</header>
+        <header class="card-header text">Вход</header>
         <form class="card-body" method="POST">
             {% if message %}
-            <div class="alert alert-danger">{{ message }}</div>
+            <div class="text">{{ message }}</div>
             {% endif %}
 
             {{ form.hidden_tag() }}
@@ -15,7 +15,7 @@
                 <div class="alert alert-danger">{{ error }}</div>
             {% endfor %}
             <div class="form-group">
-                <label>{{ form.email.label }}</label>
+                <label class="text">{{ form.email.label }}</label>
                 {{ form.email(class="form-control") }}
             </div>
 
@@ -23,7 +23,7 @@
                 <div class="alert alert-danger">{{ error }}</div>
             {% endfor %}
             <div class="form-group">
-                <label>{{ form.password.label }}</label>
+                <label class="text">{{ form.password.label }}</label>
                 {{ form.password(class="form-control") }}
             </div>
 
