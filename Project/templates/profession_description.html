@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class='container'>
-    <h2 class="text">{{ profession.title }}</h2>
-    <p class='note-content text'>{{ profession.description }}</p>
-    <button type="button"><a href="/">Вернуться на главную</a>
+<main class='text-center container'>
+    <h1 class="professions-categories" align="center">{{ profession.title }}</h1>
+    <div class="underline-professions-categories"></div>
+    <p class="professions-text">{{ profession.description }}</p>
+    <div class="underline-professions-categories"></div>
+    <a href="/"><div type="button" class="profession_description_button" align="center">Вернуться на главную</div></a>
 </main>
 
 {% endblock %}

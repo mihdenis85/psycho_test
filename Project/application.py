@@ -27,7 +27,7 @@ def load_user(user_id):
 
 @app.route('/')
 def index():
-    return render_template('main.html', title='Main')
+    return render_template('main.html', title='Твоя профессия')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -37,20 +37,20 @@ def reqister():
     form = RegisterForm()
     if form.validate_on_submit():
         if form.password.data != form.password_again.data:
-            return render_template('register.html', title='Register',
+            return render_template('register.html', title='Твоя профессия',
                                    form=form,
                                    message="Passwords doesn`t match")
         if len(form.password.data) < 6:
-            return render_template('register.html', title='Register',
+            return render_template('register.html', title='Твоя профессия',
                                    form=form,
                                    message="Password is too short")
         if form.password.data.isdigit() or form.password.data.isalpha():
-            return render_template('register.html', title='Register',
+            return render_template('register.html', title='Твоя профессия',
                                    form=form,
                                    message="Password must contain letters and digits")
         db = db_session.create_session()
         if db.query(User).filter(User.email == form.email.data).first():
-            return render_template('register.html', title='Register',
+            return render_template('register.html', title='Твоя профессия',
                                    form=form,
                                    message="User already exists")
         user = User(
@@ -64,7 +64,7 @@ def reqister():
         db.add(user)
         db.commit()
         return redirect('/login')
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Твоя профессия', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -76,14 +76,14 @@ def login():
         db = db_session.create_session()
         user = db.query(User).filter(User.email == login_form.email.data).first()
         if not user:
-            return render_template('login.html', form=login_form, message="Такого пользователя нет", title='Login')
+            return render_template('login.html', form=login_form, message="Такого пользователя нет", title='Твоя профессия')
         if user.check_password(login_form.password.data):
             login_user(user, remember=True)
             return redirect('/')
         else:
-            return render_template('login.html', form=login_form, message="Неправильный пароль", title='Login')
+            return render_template('login.html', form=login_form, message="Неправильный пароль", title='Твоя профессия')
     else:
-        return render_template('login.html', form=login_form, title='Вход')
+        return render_template('login.html', form=login_form, title='Твоя профессия')
 
 
 @app.route('/logout')
@@ -96,7 +96,7 @@ def logout():
 @app.route('/account_info')
 @login_required
 def account_info():
-    return render_template('account.html', title='Мой аккаунт', user=current_user,
+    return render_template('account.html', title='Твоя профессия', user=current_user,
                            useracc=(current_user.name + ' ' + current_user.surname))
 
 
@@ -104,14 +104,14 @@ def account_info():
 def professions_categories():
     db = db_session.create_session()
     categories = db.query(ProfessionsCategories).all()
-    return render_template('professions_categories.html', title='Категории', categories=categories)
+    return render_template('professions_categories.html', title='Твоя профессия', categories=categories)
 
 
 @app.route('/professions/<int:category_id>')
 def professions(category_id):
     db = db_session.create_session()
     professions = db.query(Profession).filter(Profession.category_id == category_id).all()
-    return render_template('professions.html', title='Профессии', professions=professions)
+    return render_template('professions.html', title='Твоя профессия', professions=professions)
 
 
 @app.route('/profession_description/<int:profession_id>')
@@ -120,14 +120,14 @@ def profession_description(profession_id):
     profession = db.query(Profession).filter(Profession.id == profession_id).first()
     if profession:
         return render_template('profession_description.html', profession=profession,
-                               title='Profession info')
+                               title='Твоя профессия')
     return redirect('/')
 
 
 @app.route('/psycho_test1/<int:user_id>', methods=['GET', 'POST'])
 def psycho_test1(user_id):
     form = Test1Form()
-    return render_template('test1.html', title='Тест', user_id=user_id, form=form)
+    return render_template('test1.html', title='Твоя профессия', user_id=user_id, form=form)
 
 
 @app.errorhandler(404)
@@ -137,20 +137,20 @@ def not_found(error):
     else:
         info = 'Anonymous'
     er_txt = '404 not found: Такого адреса не существует'
-    return render_template('error.html', title='Error',
+    return render_template('error.html', title='Твоя профессия',
                            text=er_txt, useracc=info)
 
 
 @app.errorhandler(401)
 def unauth(error):
     er_txt = '401 not authorized: Пожалуйста, авторизуйтесь на сайте!'
-    return render_template('error.html', title='Error', text=er_txt)
+    return render_template('error.html', title='Твоя профессия', text=er_txt)
 
 
 @app.errorhandler(500)
 def error_serv(error):
     er_text = 'Кажется, на сервере возникла ошибка. Выйдите на главную страницу и попробуйте снова'
-    return render_template('error.html', title='Error', text=er_text)
+    return render_template('error.html', title='Твоя профессия', text=er_text)
 
 
 from os import path

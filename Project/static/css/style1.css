@@ -9,6 +9,7 @@ body {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    color: white;
 }
 a {
 	text-decoration: none;
@@ -22,6 +23,10 @@ img {
 ul {
 	padding: 0;
 }
+button {
+	border: none;
+	outline: none;
+}
 
 @keyframes unfade {
 	from {opacity: 0;}
@@ -31,6 +36,16 @@ ul {
 	from {opacity: 0;}
 	50% {opacity: 0;}
 	to {opacity: 1;}
+}
+@keyframes fade {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@keyframes unfade_3_step {
+	from {opacity: 0;}
+	33% {opacity: 0;}
+	67% {opacity: 0;}
+	to {opacity: 1;}	
 }
 
 .header {
@@ -97,19 +112,71 @@ ul {
 	color: white;
 	animation-duration: 1s;
 	animation-name: unfade;
+	font-weight: normal;
+	font-size: 28pt;
 }
 .text_list {
 	list-style-type: none;
-	font-size: 20pt;
+	font-size: 28pt;
 	margin-top: 75px;
+}
+.text_list_account {
+	list-style-type: none;
+	font-size: 28pt;
+}
+.point_text_list_test {
+	list-style-type: none;
+	font-size: 28pt;	
+}
+.point_text_list_test:hover {
+	list-style-type: none;
+	font-size: 28pt;	
 }
 .point_text_list {
 	margin-bottom: 30px;
+}
+.point_text_list_account {
+	margin-bottom: 30px;
+	animation-duration: 1s;
+	animation-name: unfade_banner;
+}
+.point_text_list_test {
+	margin-bottom: 30px;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 30px;
+	color: white;	
+	transition: 1s;
+}
+.point_text_list_test:hover {
+	margin-bottom: 30px;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 30px;
+	color: black;	
+	transition: 1s;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
 }
 .banner {
 	width: 30%;
 	animation-duration: 1s;
 	animation-name: unfade_banner;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 30px;
+	color: black;
+	transition: 1s;
 }
 .banner_img {
 	width: 100%;
@@ -121,6 +188,163 @@ ul {
 .text_h:first-letter {
 	vertical-align: sub;
 }
+.list-group {
+	list-style-type: none;
+	font-size: 28pt;
+	margin-top: 25px;
+}
+.category-li {
+	font-size: 28pt;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 30px;
+	margin-left: -25px;
+	color: white;
+}
+.category-li:hover {
+	font-size: 28pt;
+	border-radius: 30px;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+}
+.professions-categories {
+	color: white;
+	font-weight: normal;
+	font-size: 28pt;
+	animation-duration: 1s;
+	animation-name: unfade_banner;
+}
+.underline-professions-categories {
+	width: 100%;
+	background-color: white;
+	height: 2px;
+	opacity: 0;
+	transition: 1s;
+	margin-bottom: 25px;
+}
+.text-center:hover > .underline-professions-categories {
+	opacity: 1;
+	transition: 1s;
+}
+.text-register {
+	color: white;
+	font-size: 28pt;
+	animation-duration: 1s;
+	animation-name: unfade_banner;
+	font-weight: normal;
+	margin-bottom: 25px;
+}
+.professions-text {
+	font-size: 28pt;
+	color: white;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+}
+.profession_description_button {
+	font-size: 28pt;
+	border-radius: 30px;
+	border-color: none;
+	background-color: none;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+	margin-top: 50px;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+	margin-bottom: 50px;
+}
+.profession_description_button:hover {
+	font-size: 28pt;
+	border-radius: 30px;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.form-control {
+	border: none;
+	outline: none;
+	width: 100%;
+	color: black;
+	font-size: 28pt;
+	border-radius: 30px;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	animation-duration: 1s;
+	animation-name: unfade_3_step;
+}
+.register-button {
+	border: none;
+	outline: none;
+	background-image: none;
+	background-color: transparent;
+	font-size: 28pt;
+	color: white;
+	border-radius: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	animation-duration: 1s;
+	animation-name: unfade_banner;
+}
+.register-button:hover {
+	font-size: 28pt;
+	border-radius: 30px;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: -25px;
+	transition: 1s;
+	margin-top: 50px;
+}
+.account-button {
+	margin: 0px;
+	margin-bottom: 25px;
+}
+.account-button:hover {
+	margin: 0px;
+	margin-bottom: 25px;
+}
+
 
 @media screen and (orientation: portrait) {
 	.content {

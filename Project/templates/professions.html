@@ -2,11 +2,12 @@
 
 {% block content %}
 <main class='text-center container'>
-    <h2 class="text">Профессии</h2>
+    <h1 class="professions-categories" align="center">Профессии</h1>
+    <div class="underline-professions-categories"></div>
     <div class="container">
         <ul class="list-group">
             {% for profession in professions %}
-                <a href="/profession_description/{{ profession.id }}"><li>{{ profession.title }}
+                <a href="/profession_description/{{ profession.id }}"><li class="category-li">{{ profession.title }}
                 </li></a>
             {% endfor %}
         </ul>

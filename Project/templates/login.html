@@ -2,8 +2,9 @@
 
 {% block content %}
 <div class="container">
-    <div class="card">
-        <header class="card-header text">Вход</header>
+    <div class="card text-center">
+        <h1 class="text professions-categories" align="center">Вход</h1>
+        <div class="underline-professions-categories"></div>
         <form class="card-body" method="POST">
             {% if message %}
             <div class="text">{{ message }}</div>
@@ -15,7 +16,7 @@
                 <div class="alert alert-danger">{{ error }}</div>
             {% endfor %}
             <div class="form-group">
-                <label class="text">{{ form.email.label }}</label>
+                <label class="text-register">{{ form.email.label }}</label>
                 {{ form.email(class="form-control") }}
             </div>
 
@@ -23,12 +24,12 @@
                 <div class="alert alert-danger">{{ error }}</div>
             {% endfor %}
             <div class="form-group">
-                <label class="text">{{ form.password.label }}</label>
+                <label class="text-register">{{ form.password.label }}</label>
                 {{ form.password(class="form-control") }}
             </div>
 
 
-            {{ form.submit(class="btn btn-primary") }}
+            <div align="center">{{ form.submit(class="register-button") }}</div>
         </form>
     </div>
 </div>

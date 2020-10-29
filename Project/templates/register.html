@@ -3,72 +3,73 @@
 
 {% block content %}
 <div class="container">
-    <div class="card" style="max-width: 920px; margin-left: 120px;">
-        <header class="text" style='margin-left: 80px;'>Регистрация</header>
+    <div class="card text-center">
+        <h1 class="text-register professions-categories" align="center">Регистрация</h1>
+        <div class="underline-professions-categories"></div>
         <form action="" method="post" class="form-w">
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
             {% if message %}
-            <div class="text">{{message}}</div>
+            <div class="text-register">{{message}}</div>
             {% endif %}
 
-            <div class="text">{{ form.email.label }}<br></div>
+            <div class="text-register">{{ form.email.label }}<br></div>
             {{ form.email(class="form-control", type="email") }}<br>
             {% for error in form.email.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.password.label }}</div>
+            <div class="text-register">{{ form.password.label }}</div>
             {{ form.password(class="form-control", type="password") }}<br>
             {% for error in form.password.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.password_again.label }}</div>
+            <div class="text-register">{{ form.password_again.label }}</div>
             {{ form.password_again(class="form-control", type="password") }}<br>
             {% for error in form.password_again.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.name.label }}</div>
+            <div class="text-register">{{ form.name.label }}</div>
             {{ form.name(class="form-control") }}<br>
             {% for error in form.name.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.surname.label }}</div>
+            <div class="text-register">{{ form.surname.label }}</div>
             {{ form.surname(class="form-control") }}<br>
             {% for error in form.surname.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.country.label }}</div>
+            <div class="text-register">{{ form.country.label }}</div>
             {{ form.country(class="form-control") }}<br>
             {% for error in form.country.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            <div class="text">{{ form.city.label }}</div>
+            <div class="text-register">{{ form.city.label }}</div>
             {{ form.city(class="form-control") }}<br>
             {% for error in form.city.errors %}
-                <p class="alert alert-danger" role="alert">
+                <p class="text-register" role="alert">
                     {{ error }}
                 </p>
             {% endfor %}
 
-            {{ form.submit(type="submit", class="btn btn-primary") }}
+            <div align="center">{{ form.submit(type="submit", class="register-button") }}</div>
         </form>
     </div>
 </div>

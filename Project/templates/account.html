@@ -2,13 +2,16 @@
 
 {% block content %}
 
-<main class='container'>
-    <h1 class='text acc-head-name'>{{useracc}}</h1>
-    <br>
-    <a href="/psycho_test1/{{ current_user.id }}"><h5 class='text button-note-text' style='font-size:24pt;'>Пройдите наш тест</h5></a>
-    <p class='text button-note-text' style='margin-left:80px;'>E-mail: {{ user.email }}</p>
-    <p class='text button-note-text' style='margin-left:80px;'>Город: {{ user.city }}</p>
-    <p class='text button-note-text' style='margin-left:80px;'>Страна: {{ user.country }}</p>
+<main class='container text-center'>
+    <h1 class="text-register professions-categories" align="center">{{useracc}}</h1>
+    <div class="underline-professions-categories"></div>
+    <a href="/psycho_test1/{{ current_user.id }}" align="center"><div class="profession_description_button account-button" align="center">Пройдите наш тест</div></a>
+    <div class="underline-professions-categories"></div>
+    <ul class="text_list_account">
+	    <li class="point_text_list_account">E-mail: {{ user.email }}</li>
+	    <li class="point_text_list_account">Город: {{ user.city }}</li>
+	    <li class="point_text_list_account">Страна: {{ user.country }}</li>
+	</ul>
 </main>
 
 {% endblock %}

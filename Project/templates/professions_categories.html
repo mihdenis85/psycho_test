@@ -2,16 +2,17 @@
 
 {% block content %}
 <main class='text-center container'>
-        <h2 class="text">Категории профессий</h2>
-        <div class="container">
-            <ul class="list-group">
-                {% for category in categories %}
-                <a href="/professions/{{ category.id }}"><li>
-                    {{ category.title }}</li></a>
-                {% endfor %}
-            </ul>
-        </div>
-    </main>
+    <h1 class="professions-categories" align="center">Категории профессий</h1>
+    <div class="underline-professions-categories"></div>
+    <div class="container">
+        <ul class="list-group">
+            {% for category in categories %}
+            <a href="/professions/{{ category.id }}"><li class="category-li">
+                {{ category.title }}</li></a>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
 
 
 {% endblock %}
