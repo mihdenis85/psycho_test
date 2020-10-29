@@ -4,13 +4,15 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	font-family: Arial;
+	background: url(images/background.png) no-repeat;
+	-moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 a {
 	text-decoration: none;
 	color: white;
-}
-td {
-    text-color: white;
 }
 img {
 	image-rendering: -moz-crisp-edges;
@@ -20,6 +22,17 @@ img {
 ul {
 	padding: 0;
 }
+
+@keyframes unfade {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes unfade_banner {
+	from {opacity: 0;}
+	50% {opacity: 0;}
+	to {opacity: 1;}
+}
+
 .header {
 	padding-top: 50px;
 	display: flex;
@@ -53,6 +66,23 @@ ul {
 	padding-bottom: 10px;
 	padding-left: 25px;
 	padding-right: 25px;
+	border-radius: 30px;
+	animation-duration: 1s;
+	animation-name: unfade;
+	transition: 1s;
+}
+.menu_point:hover {
+	border-radius: 30px;
+	border-color: #fbbb81;
+	background-color: #fbbb81;
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	animation-duration: 1s;
+	animation-name: unfade;
+	transition: 1s;
 }
 .content {
 	display: flex;
@@ -65,6 +95,8 @@ ul {
 }
 .text {
 	color: white;
+	animation-duration: 1s;
+	animation-name: unfade;
 }
 .text_list {
 	list-style-type: none;
@@ -76,6 +108,8 @@ ul {
 }
 .banner {
 	width: 30%;
+	animation-duration: 1s;
+	animation-name: unfade_banner;
 }
 .banner_img {
 	width: 100%;

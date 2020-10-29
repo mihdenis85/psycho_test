@@ -19,7 +19,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 admin_index = 1
 
-
 @login_manager.user_loader
 def load_user(user_id):
     db = db_session.create_session()
