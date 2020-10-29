@@ -127,8 +127,6 @@ def profession_description(profession_id):
 @app.route('/psycho_test1/<int:user_id>', methods=['GET', 'POST'])
 def psycho_test1(user_id):
     form = Test1Form()
-    for subfield in form.questions[0][0]:
-        print(subfield)
     return render_template('test1.html', title='Тест', user_id=user_id, form=form)
 
 

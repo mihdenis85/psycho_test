@@ -12,16 +12,124 @@
             <div class="text">{{ message }}</div>
             {% endif %}
 
-            {% for question in form.questions %}
-            {% for subfield in form.question %}
+            <h1 class="text">Вопрос №1</h1>
+            {% for subfield in form.question1 %}
             <tr>
                 <div class="text"><td>{{ subfield.label }}</td>
                 <td>{{ subfield }}</td></div>
                 <br>
             </tr>
             {% endfor %}
+
+
+            <h1 class="text">Вопрос №2</h1>
+            {% for subfield in form.question2 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
             {% endfor %}
 
+
+            <h1 class="text">Вопрос №3</h1>
+            {% for subfield in form.question3 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №4</h1>
+            {% for subfield in form.question4 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №5</h1>
+            {% for subfield in form.question5 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №6</h1>
+            {% for subfield in form.question6 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №7</h1>
+            {% for subfield in form.question7 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №8</h1>
+            {% for subfield in form.question8 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №9</h1>
+            {% for subfield in form.question9 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №10</h1>
+            {% for subfield in form.question10 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №11</h1>
+            {% for subfield in form.question11 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
+
+
+            <h1 class="text">Вопрос №12</h1>
+            {% for subfield in form.question12 %}
+            <tr>
+                <div class="text"><td>{{ subfield.label }}</td>
+                <td>{{ subfield }}</td></div>
+                <br>
+            </tr>
+            {% endfor %}
 
             {{ form.submit(class="btn btn-primary") }}
         </form>
