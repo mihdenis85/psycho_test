@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="card-header text" align="center">Психологический тест</h1>
+    <div class="underline-professions-categories"></div>
+    <p class="text-register professions-categories">Добро пожаловать в наш тест по профориентации!</p>
+    <p class="text-register professions-categories">Из двух предложенных занятий выберите одно, которое ближе конкретно вам</p>
+    <div class="underline-professions-categories"></div>
+        <form class="card-body text-center" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+
+            {% if message %}
+            <div class="text">{{ message }}</div>
+            {% endif %}
+
+            <h1 class="text" align="center">Вопрос №1</h1>
+            <ul align="center">
+            {% for subfield in form.question1 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+            <h1 class="text" align="center">Вопрос №2</h1>
+            <ul align="center">
+            {% for subfield in form.question2 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №3</h1>
+            <ul align="center">
+            {% for subfield in form.question3 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №4</h1>
+            <ul align="center">
+            {% for subfield in form.question4 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №5</h1>
+            <ul align="center">
+            {% for subfield in form.question5 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №6</h1>
+            <ul align="center">
+            {% for subfield in form.question6 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №7</h1>
+            <ul align="center">
+            {% for subfield in form.question7 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №8</h1>
+            <ul align="center">
+            {% for subfield in form.question8 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №9</h1>
+            <ul align="center">
+            {% for subfield in form.question9 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №10</h1>
+            <ul align="center">
+            {% for subfield in form.question10 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №11</h1>
+            <ul align="center">
+            {% for subfield in form.question11 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №12</h1>
+            <ul align="center">
+            {% for subfield in form.question12 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №13</h1>
+            <ul align="center">
+            {% for subfield in form.question13 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №14</h1>
+            <ul align="center">
+            {% for subfield in form.question14 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №15</h1>
+            <ul align="center">
+            {% for subfield in form.question15 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №16</h1>
+            <ul align="center">
+            {% for subfield in form.question16 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №17</h1>
+            <ul align="center">
+            {% for subfield in form.question17 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №18</h1>
+            <ul align="center">
+            {% for subfield in form.question18 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №19</h1>
+            <ul align="center">
+            {% for subfield in form.question19 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <h1 class="text" align="center">Вопрос №20</h1>
+            <ul align="center">
+            {% for subfield in form.question20 %}
+                <li class="point_text_list_test" align="center">{{ subfield }} {{ subfield.label }}</li>
+            {% endfor %}
+            </ul>
+            <div class="underline-professions-categories"></div>
+
+
+            <div align="center">{{ form.submit(class="register-button") }}</div>
+        </form>
+</div>
+{% endblock %}

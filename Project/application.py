@@ -5,10 +5,11 @@ from flask import Flask, render_template, redirect, url_for, make_response, json
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 from Project.checking_test1 import fun
+from Project.checking_test2 import check_test2
 from Project.data import db_session
 from Project.data.models import User, ProfessionsCategories
 from Project.data.models.professions import Profession
-from Project.forms import Test1Form
+from Project.forms import Test1Form, Test2Form
 from Project.forms.login_form import LoginForm
 from Project.forms.register_form import RegisterForm
 
@@ -199,6 +200,57 @@ def test1_results():
     if results:
         return render_template('results_test.html', title='Результаты теста', results=results)
     return render_template('results_test.html', title='Результаты теста', results='Результатов еще нет. Пройдите наш тест')
+
+
+@app.route('/psycho_test2/<int:user_id>', methods=['GET', 'POST'])
+@login_required
+def psycho_test2(user_id):
+    form = Test2Form()
+    if form.validate_on_submit():
+        db = db_session.create_session()
+        results = [
+            form.question1.data,
+            form.question2.data,
+            form.question3.data,
+            form.question4.data,
+            form.question5.data,
+            form.question6.data,
+            form.question7.data,
+            form.question8.data,
+            form.question9.data,
+            form.question10.data,
+
+            form.question11.data,
+            form.question12.data,
+            form.question13.data,
+            form.question14.data,
+            form.question15.data,
+            form.question16.data,
+            form.question17.data,
+            form.question18.data,
+            form.question19.data,
+            form.question20.data
+        ]
+        try:
+            results = [int(el) for el in results]
+            result = check_test2(results)
+            current_user.test2_results = result
+            print(result)
+            db.merge(current_user)
+            db.commit()
+        except Exception:
+            print('Error')
+        return redirect('/test2_results')
+    return render_template('test2.html', title='Твоя профессия', user_id=user_id, form=form)
+
+
+@app.route('/test2_results')
+@login_required
+def test2_results():
+    results = current_user.test2_results
+    if results:
+        return render_template('results_test2.html', title='Результаты теста', results=results)
+    return render_template('results_test2.html', title='Результаты теста', results='Результатов еще нет. Пройдите наш тест')
 
 
 @app.errorhandler(404)

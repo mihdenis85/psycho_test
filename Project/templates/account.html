@@ -5,8 +5,10 @@
 <main class='container text-center'>
     <h1 class="text-register professions-categories" align="center">{{useracc}}</h1>
     <div class="underline-professions-categories"></div>
-    <a href="/psycho_test1/{{ current_user.id }}" align="center"><div class="profession_description_button account-button" align="center">Пройдите наш тест</div></a>
-    <a href="/test1_results" align="center"><div class="profession_description_button account-button" align="center">Просмотреть результаты</div></a>
+    <a href="/psycho_test1/{{ current_user.id }}" align="center"><div class="profession_description_button account-button" align="center">Пройдите наш первый тест</div></a>
+    <a href="/psycho_test2/{{ current_user.id }}" align="center"><div class="profession_description_button account-button" align="center">Пройдите наш второй тест</div></a>
+    <a href="/test1_results" align="center"><div class="profession_description_button account-button" align="center">Просмотреть результаты первого теста</div></a>
+    <a href="/test2_results" align="center"><div class="profession_description_button account-button" align="center">Просмотреть результаты второго теста</div></a>
     <div class="underline-professions-categories"></div>
     <ul class="text_list_account">
 	    <li class="point_text_list_account">E-mail: {{ user.email }}</li>

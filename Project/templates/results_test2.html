@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class='text-center container'>
+    <h1 class="professions-categories" align="center">Результаты профориентационного теста 2</h1>
+    <div class="underline-professions-categories"></div>
+    <div class="container text-center">
+        <p class="text">
+            {{ results }}
+        </p>
+        {% if results != "Результатов еще нет. Пройдите наш тест 2" %}
+        <p class="text">Спасибо за искренние ответы! Вы молодец!</p>
+        {% endif %}
+        <div class="underline-professions-categories"></div>
+        <a href="/account_info"><div align="center" class="menu_point text">Назад</div></a><br>
+    </div>
+    </main>
+
+{% endblock %}
