@@ -185,9 +185,6 @@ button {
 	font-size: 50pt;
 	font-weight: normal;
 }
-.text_h:first-letter {
-	vertical-align: sub;
-}
 .list-group {
 	list-style-type: none;
 	font-size: 28pt;
