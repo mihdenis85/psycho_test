@@ -16,6 +16,8 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
     city = Column(String)
     email = Column(String, index=True, unique=True)
     age = Column(Integer)
+    test1_results = Column(String)
+    test2_results = Column(String)
     hashed_password = Column(String)
 
 

@@ -8,6 +8,9 @@
     <p class="text-register professions-categories">Из двух предложенных профессий выберите одну, которая ближе конкретно вам</p>
     <div class="underline-professions-categories"></div>
         <form class="card-body text-center" method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+
             {% if message %}
             <div class="text">{{ message }}</div>
             {% endif %}

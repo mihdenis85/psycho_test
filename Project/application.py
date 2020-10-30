@@ -4,6 +4,7 @@ from datetime import timedelta
 from flask import Flask, render_template, redirect, url_for, make_response, jsonify, session
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
+from Project.checking_test1 import fun
 from Project.data import db_session
 from Project.data.models import User, ProfessionsCategories
 from Project.data.models.professions import Profession
@@ -125,9 +126,79 @@ def profession_description(profession_id):
 
 
 @app.route('/psycho_test1/<int:user_id>', methods=['GET', 'POST'])
+@login_required
 def psycho_test1(user_id):
     form = Test1Form()
+    if form.validate_on_submit():
+        db = db_session.create_session()
+        results = [
+            form.question1.data,
+            form.question2.data,
+            form.question3.data,
+            form.question4.data,
+            form.question5.data,
+            form.question6.data,
+            form.question7.data,
+            form.question8.data,
+            form.question9.data,
+            form.question10.data,
+
+            form.question11.data,
+            form.question12.data,
+            form.question13.data,
+            form.question14.data,
+            form.question15.data,
+            form.question16.data,
+            form.question17.data,
+            form.question18.data,
+            form.question19.data,
+            form.question20.data,
+
+            form.question21.data,
+            form.question22.data,
+            form.question23.data,
+            form.question24.data,
+            form.question25.data,
+            form.question26.data,
+            form.question27.data,
+            form.question28.data,
+            form.question29.data,
+            form.question30.data,
+
+            form.question31.data,
+            form.question32.data,
+            form.question33.data,
+            form.question34.data,
+            form.question35.data,
+            form.question36.data,
+            form.question37.data,
+            form.question38.data,
+            form.question39.data,
+            form.question40.data,
+
+            form.question41.data,
+            form.question42.data
+        ]
+        try:
+            results = [int(el) for el in results]
+            result = fun(results)
+            current_user.test1_results = result
+            print(result)
+            db.merge(current_user)
+            db.commit()
+        except Exception:
+            print('Error')
+        return redirect('/test1_results')
     return render_template('test1.html', title='Твоя профессия', user_id=user_id, form=form)
+
+
+@app.route('/test1_results')
+@login_required
+def test1_results():
+    results = current_user.test1_results
+    if results:
+        return render_template('results_test.html', title='Результаты теста', results=results)
+    return render_template('results_test.html', title='Результаты теста', results='Результатов еще нет. Пройдите наш тест')
 
 
 @app.errorhandler(404)
